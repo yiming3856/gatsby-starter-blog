@@ -12,9 +12,9 @@ module.exports = {
     title: `我的博客`,
     author: {
       name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      summary: `欢迎来到我的个人博客，在这个博客中，我将写下我的项目（我做什么/我如何做）、我的个人经历以及一些随机的东西⭐`,
     },
-    description: `你好，这里是我的博客，随笔写点东西的地方`,
+    description: `赚钱，创业，SEO，小本创业，VPS主机`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
       twitter: `kylemathews`,
