@@ -323,8 +323,26 @@ a:focus {
   }
 }
 
-/* 强制首页网站名称字体大小 */
+/* ===== 强制标题样式修改 ===== */
+/* 首页标题 */
 .global-header .main-heading,
 .global-header .main-heading a {
-  font-size: 1.75rem !important; /* 调整为28px */
+  font-size: 1.5rem !important; /* 24px */
+}
+
+/* 文章页主标题 (h1) */
+.blog-post header h1,
+h1 {
+  font-size: 1.75rem !important; /* 28px */
+}
+
+/* 文章列表标题 (h2) */
+.post-list-item h2,
+h2 {
+  font-size: 1.3rem !important; /* 21px */
+}
+
+/* 其他标题层级 */
+h3 {
+  font-size: 1.15rem !important; /* 18px */
 }
