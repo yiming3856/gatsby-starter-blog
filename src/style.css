@@ -329,3 +329,8 @@ a:focus {
     list-style-position: inside;
   }
 }
+/* 强制首页网站名称字体大小 */
+.global-header .main-heading,
+.global-header .main-heading a {
+  font-size: 2rem !important;
+}
