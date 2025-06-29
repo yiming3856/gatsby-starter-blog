@@ -117,7 +117,7 @@ h6 {
 
 h1 {
   font-weight: var(--fontWeight-black);
-  font-size: var(--fontSize-6);
+  font-size: 2rem; /* ✅ 修改了：原来是 var(--fontSize-6) ≈ 40px */
   color: var(--color-heading-black);
 }
 
@@ -253,7 +253,7 @@ a:focus {
 }
 
 .main-heading {
-  font-size: 2rem; /* ✅ 修改后：站点标题为 32px */
+  font-size: 2rem; /* ✅ 修改了：原来是 var(--fontSize-7) ≈ 48px */
   margin: 0;
 }
 
