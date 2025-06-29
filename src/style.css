@@ -1,5 +1,4 @@
 /* CSS Custom Properties Definitions */
-
 :root {
   --maxWidth-none: "none";
   --maxWidth-xs: 20rem;
@@ -61,7 +60,6 @@
 }
 
 /* HTML elements */
-
 *,
 :after,
 :before {
@@ -92,7 +90,6 @@ hr {
 }
 
 /* Heading */
-
 h1,
 h2,
 h3,
@@ -100,8 +97,8 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  margin-top: var(--spacing-12);
-  margin-bottom: var(--spacing-6);
+  margin-top: var(--spacing-8); /* 减小了标题上下间距 */
+  margin-bottom: var(--spacing-4);
   line-height: var(--lineHeight-tight);
   letter-spacing: -0.025em;
 }
@@ -117,16 +114,16 @@ h6 {
 
 h1 {
   font-weight: var(--fontWeight-black);
-  font-size: 2rem; /* ✅ 修改了：原来是 var(--fontSize-6) ≈ 40px */
+  font-size: 1.75rem; /* 调整为28px */
   color: var(--color-heading-black);
 }
 
 h2 {
-  font-size: var(--fontSize-5);
+  font-size: 1.5rem; /* 调整为24px */
 }
 
 h3 {
-  font-size: var(--fontSize-4);
+  font-size: 1.3rem; /* 调整为21px */
 }
 
 h4 {
@@ -156,12 +153,11 @@ h6 > a {
 }
 
 /* Prose */
-
 p {
   line-height: var(--lineHeight-relaxed);
   --baseline-multiplier: 0.179;
   --x-height-multiplier: 0.35;
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0);
+  margin: var(--spacing-0) var(--spacing-0) var(--spacing-6) var(--spacing-0); /* 减小段落间距 */
   padding: var(--spacing-0);
 }
 
@@ -170,7 +166,7 @@ ol {
   margin-left: var(--spacing-0);
   margin-right: var(--spacing-0);
   padding: var(--spacing-0);
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-6); /* 减小列表间距 */
   list-style-position: outside;
   list-style-image: none;
 }
@@ -178,11 +174,11 @@ ol {
 ul li,
 ol li {
   padding-left: var(--spacing-0);
-  margin-bottom: calc(var(--spacing-8) / 2);
+  margin-bottom: calc(var(--spacing-6) / 2);
 }
 
 li > p {
-  margin-bottom: calc(var(--spacing-8) / 2);
+  margin-bottom: calc(var(--spacing-6) / 2);
 }
 
 li *:last-child {
@@ -190,19 +186,19 @@ li *:last-child {
 }
 
 li > ul {
-  margin-left: var(--spacing-8);
-  margin-top: calc(var(--spacing-8) / 2);
+  margin-left: var(--spacing-6);
+  margin-top: calc(var(--spacing-6) / 2);
 }
 
 blockquote {
   color: var(--color-text-light);
-  margin-left: calc(-1 * var(--spacing-6));
-  margin-right: var(--spacing-8);
-  padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
+  margin-left: calc(-1 * var(--spacing-4)); /* 减小引用块缩进 */
+  margin-right: var(--spacing-6);
+  padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
   border-left: var(--spacing-1) solid var(--color-primary);
   font-size: var(--fontSize-2);
   font-style: italic;
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-6);
 }
 
 blockquote > :last-child {
@@ -216,7 +212,7 @@ blockquote > ol {
 
 table {
   width: 100%;
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-6);
   border-collapse: collapse;
   border-spacing: 0.25rem;
 }
@@ -226,7 +222,6 @@ table thead tr th {
 }
 
 /* Link */
-
 a {
   color: var(--color-primary);
 }
@@ -237,29 +232,28 @@ a:focus {
 }
 
 /* Custom classes */
-
 .global-wrapper {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-5);
+  padding: var(--spacing-8) var(--spacing-5); /* 减小内边距 */
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {
-  margin-bottom: var(--spacing-20);
-}
-
-.global-header {
   margin-bottom: var(--spacing-12);
 }
 
+.global-header {
+  margin-bottom: var(--spacing-8); /* 减小页眉下边距 */
+}
+
 .main-heading {
-  font-size: 2rem; /* ✅ 修改了：原来是 var(--fontSize-7) ≈ 48px */
+  font-size: 1.75rem; /* 调整为28px */
   margin: 0;
 }
 
 .post-list-item {
-  margin-bottom: var(--spacing-8);
-  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-6);
+  margin-top: var(--spacing-6);
 }
 
 .post-list-item p {
@@ -267,14 +261,14 @@ a:focus {
 }
 
 .post-list-item h2 {
-  font-size: var(--fontSize-4);
+  font-size: 1.3rem; /* 调整为21px */
   color: var(--color-primary);
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
 }
 
 .post-list-item header {
-  margin-bottom: var(--spacing-4);
+  margin-bottom: var(--spacing-3);
 }
 
 .header-link-home {
@@ -286,7 +280,7 @@ a:focus {
 
 .bio {
   display: flex;
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--spacing-12); /* 减小bio区域下边距 */
 }
 
 .bio p {
@@ -301,7 +295,7 @@ a:focus {
 }
 
 .blog-post header h1 {
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
+  margin: var(--spacing-0) var(--spacing-0) var(--spacing-3) var(--spacing-0);
 }
 
 .blog-post header p {
@@ -314,11 +308,10 @@ a:focus {
 }
 
 .gatsby-highlight {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-6);
 }
 
 /* Media queries */
-
 @media (max-width: 42rem) {
   blockquote {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
@@ -329,8 +322,9 @@ a:focus {
     list-style-position: inside;
   }
 }
+
 /* 强制首页网站名称字体大小 */
 .global-header .main-heading,
 .global-header .main-heading a {
-  font-size: 2rem !important;
+  font-size: 1.75rem !important; /* 调整为28px */
 }
