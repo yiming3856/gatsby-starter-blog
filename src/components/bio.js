@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -15,30 +15,22 @@ const Bio = () => {
       }
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(width: 50, height: 50, layout: FIXED)
         }
       }
     }
   `)
 
   const author = data.site.siteMetadata?.author
-  const avatar = data.avatar?.childImageSharp?.fixed
+  const avatarImage = getImage(data.avatar.childImageSharp.gatsbyImageData)
 
   return (
     <div className="bio" style={{ display: "flex", alignItems: "center" }}>
-      {avatar && (
-        <Image
-          fixed={avatar}
-          alt={author?.name}
-          style={{
-            marginRight: "0.5rem",
-            borderRadius: "50%",
-            minWidth: 50,
-          }}
-        />
-      )}
+      <GatsbyImage
+        image={avatarImage}
+        alt={author?.name}
+        style={{ borderRadius: "50%", marginRight: "0.5rem", minWidth: 50 }}
+      />
       <p style={{ margin: 0 }}>
         Written by <strong>{author?.name}</strong> {author?.summary}
       </p>
