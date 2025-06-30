@@ -8,39 +8,17 @@ const Layout = ({ location, title, children }) => {
   let header
 
   if (isRootPath) {
-    // 首页标题（主标题）
     header = (
-      <h1
-        className="main-heading"
-        style={{
-          fontSize: "24px",
-          margin: "20px 0",
-          fontWeight: "bold",
-        }}
-      >
-        <Link
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: "inherit",
-          }}
-        >
+      <h1 className="main-heading">
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           {title}
         </Link>
       </h1>
     )
   } else {
-    // 内页标题（变成导航式返回链接）
     header = (
-      <div style={{ margin: "10px 0" }}>
-        <Link
-          to="/"
-          style={{
-            fontSize: "14px",
-            color: "#888",
-            textDecoration: "none",
-          }}
-        >
+      <div>
+        <Link className="header-link-home" to="/">
           ← 返回首页
         </Link>
       </div>
