@@ -68,7 +68,9 @@ export default BlogIndex
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="All posts" />
+export const Head = () => (
+  <Seo title="红色回形针 - 真实才是最酷的博客" useTemplate={false} />
+)
 
 export const pageQuery = graphql`
   {
