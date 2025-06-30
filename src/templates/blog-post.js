@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import ScrollToTop from "../components/ScrollToTop" // ✅ 新增导入
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -31,6 +32,7 @@ const BlogPostTemplate = ({
           <Bio />
         </footer>
       </article>
+
       <nav className="blog-post-nav">
         <ul
           style={{
@@ -57,6 +59,8 @@ const BlogPostTemplate = ({
           </li>
         </ul>
       </nav>
+
+      <ScrollToTop /> {/* ✅ 加在 Layout 内部底部 */}
     </Layout>
   )
 }
