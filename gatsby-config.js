@@ -14,7 +14,7 @@ module.exports = {
       name: `Hi, 来了🚀`,
       summary: `欢迎来到我的个人博客，在这个博客中，我将写下我的项目（我做什么/我如何做）、我的个人经历以及一些随机的东西⭐`,
     },
-    description: `我的博客`,
+    description: `红色回形针`,
     siteUrl: `https://bestx.cc/`,
     social: {
       twitter: `kylemathews`,
