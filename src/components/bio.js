@@ -24,12 +24,23 @@ const Bio = () => {
   `)
 
   const author = data.site.siteMetadata?.author
+  const avatar = data.avatar?.childImageSharp?.fixed
 
   return (
-    <div className="bio">
-      <Image fixed={data.avatar.childImageSharp.fixed} alt={author.name} />
-      <p>
-        Written by <strong>{author.name}</strong> {author.summary}
+    <div className="bio" style={{ display: "flex", alignItems: "center" }}>
+      {avatar && (
+        <Image
+          fixed={avatar}
+          alt={author?.name}
+          style={{
+            marginRight: "0.5rem",
+            borderRadius: "50%",
+            minWidth: 50,
+          }}
+        />
+      )}
+      <p style={{ margin: 0 }}>
+        Written by <strong>{author?.name}</strong> {author?.summary}
       </p>
     </div>
   )
