@@ -11,11 +11,11 @@ module.exports = {
   siteMetadata: {
     title: `我的博客`,
     author: {
-      name: `Kyle Mathews`,
+      name: `我不需要这个简介`,
       summary: `欢迎来到我的个人博客，在这个博客中，我将写下我的项目（我做什么/我如何做）、我的个人经历以及一些随机的东西⭐`,
     },
-    description: `赚钱，创业，SEO，小本创业，VPS主机`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `我的博客`,
+    siteUrl: `https://bestx.cc/`,
     social: {
       twitter: `kylemathews`,
     },
