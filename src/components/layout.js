@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import "./layout.css"
 
 const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
+  const rootPath = ${__PATH_PREFIX__}/
   const isRootPath = location.pathname === rootPath
   let header
 
@@ -30,10 +30,9 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}
+        © {new Date().getFullYear()}, Built with{" "}
+        <a href="https://www.gatsbyjs.com">Gatsby</a>
       </footer>
     </div>
   )
 }
-
-export default Layout
