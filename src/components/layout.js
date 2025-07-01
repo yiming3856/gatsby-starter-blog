@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import "./layout.css"
 
 const Layout = ({ location, title, children }) => {
-  const rootPath = ${__PATH_PREFIX__}/
+  const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
 
@@ -36,3 +36,5 @@ const Layout = ({ location, title, children }) => {
     </div>
   )
 }
+
+export default Layout
