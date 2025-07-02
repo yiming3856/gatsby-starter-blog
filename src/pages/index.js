@@ -26,15 +26,15 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Bio />
 
-      {/* 分隔线样式美化版 */}
+      {/* 美观分隔线 */}
       <hr
         style={{
-          margin: "2.5rem auto",
-          maxWidth: "300px",
+          margin: "3rem auto",
+          maxWidth: "80%",
           border: "none",
-          borderTop: "2px solid #e0e0e0",
+          borderTop: "2px solid #ccc",
           borderRadius: "999px",
-          boxShadow: "0 1px 2px rgba(0,0,0,0.05)",
+          boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05)",
         }}
       />
 
