@@ -32,7 +32,7 @@ const Bio = () => {
         style={{ borderRadius: "50%", marginRight: "0.5rem", minWidth: 50 }}
       />
       <p style={{ margin: 0 }}>
-        Written by <strong>{author?.name}</strong> {author?.summary}
+        <strong>{author?.name}</strong> {author?.summary}
       </p>
     </div>
   )
