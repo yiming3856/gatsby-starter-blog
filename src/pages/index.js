@@ -35,8 +35,16 @@ const BlogIndex = ({ data, location }) => {
         }}
       />
 
-      {/* 左上标题：文章列表开头 */}
-      <h2 style={{ fontSize: "1.5rem", marginBottom: "1.5rem" }}>📝 最新文章</h2>
+      {/* 最新文章标题（去掉图标，字体略大） */}
+      <h2
+        style={{
+          fontSize: "1.75rem",
+          marginBottom: "1.5rem",
+          fontWeight: "600",
+        }}
+      >
+        最新文章
+      </h2>
 
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
