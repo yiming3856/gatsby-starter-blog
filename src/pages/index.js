@@ -26,17 +26,40 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Bio />
 
-      {/* 美观分隔线 */}
-      <hr
+      {/* 美观分隔线：中间有文字，两侧线条自动拉伸对齐正文 */}
+      <div
         style={{
-          margin: "3rem auto",
-          maxWidth: "80%",
-          border: "none",
-          borderTop: "2px solid #ccc",
-          borderRadius: "999px",
-          boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05)",
+          display: "flex",
+          alignItems: "center",
+          textAlign: "center",
+          margin: "3rem 0",
         }}
-      />
+      >
+        <hr
+          style={{
+            flex: 1,
+            border: "none",
+            borderTop: "1px solid #ccc",
+          }}
+        />
+        <span
+          style={{
+            padding: "0 1rem",
+            color: "#666",
+            fontSize: "1rem",
+            whiteSpace: "nowrap",
+          }}
+        >
+          📝 最新文章
+        </span>
+        <hr
+          style={{
+            flex: 1,
+            border: "none",
+            borderTop: "1px solid #ccc",
+          }}
+        />
+      </div>
 
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
@@ -107,3 +130,4 @@ export const pageQuery = graphql`
     }
   }
 `
+
