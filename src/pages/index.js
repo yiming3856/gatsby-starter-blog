@@ -26,25 +26,40 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Bio />
 
-      {/* 简洁分隔线 */}
-      <hr
+      {/* 美观分隔线：中间有文字，两侧线条自动拉伸对齐正文 */}
+      <div
         style={{
-          margin: "2.5rem 0",
-          border: "none",
-          borderTop: "1px solid #ccc",
-        }}
-      />
-
-      {/* 最新文章标题（去掉图标，字体略大） */}
-      <h2
-        style={{
-          fontSize: "1.75rem",
-          marginBottom: "1.5rem",
-          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          textAlign: "center",
+          margin: "3rem 0",
         }}
       >
-        最新文章
-      </h2>
+        <hr
+          style={{
+            flex: 1,
+            border: "none",
+            borderTop: "1px solid #ccc",
+          }}
+        />
+        <span
+          style={{
+            padding: "0 1rem",
+            color: "#666",
+            fontSize: "1rem",
+            whiteSpace: "nowrap",
+          }}
+        >
+          📝 最新文章
+        </span>
+        <hr
+          style={{
+            flex: 1,
+            border: "none",
+            borderTop: "1px solid #ccc",
+          }}
+        />
+      </div>
 
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
@@ -84,6 +99,11 @@ const BlogIndex = ({ data, location }) => {
 
 export default BlogIndex
 
+/**
+ * Head export to define metadata for the page
+ *
+ * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
+ */
 export const Head = () => (
   <Seo title="Notink - 我想慢慢写一些东西" useTemplate={false} />
 )
@@ -110,3 +130,13 @@ export const pageQuery = graphql`
     }
   }
 `
+---
+
+✅ 效果就是你想要的那种：介绍 → 中间带「📝 最新文章」分隔线 → 文章列表，看起来有节奏、有重点。
+
+如果你还想要：
+- 把这条线提取为组件
+- 支持暗色模式自动适配颜色
+- 增加过渡动画（比如 fade in）
+
+随时告诉我，我可以继续帮你优化 💪
