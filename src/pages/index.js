@@ -26,40 +26,17 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Bio />
 
-      {/* 美观分隔线：中间有文字，两侧线条自动拉伸对齐正文 */}
-      <div
+      {/* 简洁分隔线 */}
+      <hr
         style={{
-          display: "flex",
-          alignItems: "center",
-          textAlign: "center",
-          margin: "3rem 0",
+          margin: "2.5rem 0",
+          border: "none",
+          borderTop: "1px solid #ccc",
         }}
-      >
-        <hr
-          style={{
-            flex: 1,
-            border: "none",
-            borderTop: "1px solid #ccc",
-          }}
-        />
-        <span
-          style={{
-            padding: "0 1rem",
-            color: "#666",
-            fontSize: "1rem",
-            whiteSpace: "nowrap",
-          }}
-        >
-          📝 最新文章
-        </span>
-        <hr
-          style={{
-            flex: 1,
-            border: "none",
-            borderTop: "1px solid #ccc",
-          }}
-        />
-      </div>
+      />
+
+      {/* 左上标题：文章列表开头 */}
+      <h2 style={{ fontSize: "1.5rem", marginBottom: "1.5rem" }}>📝 最新文章</h2>
 
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
@@ -99,11 +76,6 @@ const BlogIndex = ({ data, location }) => {
 
 export default BlogIndex
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = () => (
   <Seo title="Notink - 我想慢慢写一些东西" useTemplate={false} />
 )
@@ -130,4 +102,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
