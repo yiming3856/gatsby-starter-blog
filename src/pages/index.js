@@ -25,6 +25,19 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
+
+      {/* 分隔线样式美化版 */}
+      <hr
+        style={{
+          margin: "2.5rem auto",
+          maxWidth: "300px",
+          border: "none",
+          borderTop: "2px solid #e0e0e0",
+          borderRadius: "999px",
+          boxShadow: "0 1px 2px rgba(0,0,0,0.05)",
+        }}
+      />
+
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
