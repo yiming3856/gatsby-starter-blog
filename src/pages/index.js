@@ -1,131 +1,60 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import * as sections from "../components/sections"
+import Fallback from "../components/fallback"
+import SEOHead from "../components/head"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
+interface HomepageProps {
+  data: {
+    homepage: {
+      id: string
+      title: string
+      description: string
+      image: { id: string; url: string }
+      blocks: sections.HomepageBlock[]
+    }
   }
+}
+
+export default function Homepage(props: HomepageProps) {
+  const { homepage } = props.data
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Bio />
-
-      {/* 美观分隔线：中间有文字，两侧线条自动拉伸对齐正文 */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          textAlign: "center",
-          margin: "3rem 0",
-        }}
-      >
-        <hr
-          style={{
-            flex: 1,
-            border: "none",
-            borderTop: "1px solid #ccc",
-          }}
-        />
-        <span
-          style={{
-            padding: "0 1rem",
-            color: "#666",
-            fontSize: "1rem",
-            whiteSpace: "nowrap",
-          }}
-        >
-          📝 最新文章
-        </span>
-        <hr
-          style={{
-            flex: 1,
-            border: "none",
-            borderTop: "1px solid #ccc",
-          }}
-        />
-      </div>
-
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+    <Layout>
+      {homepage.blocks.map((block) => {
+        const { id, blocktype, ...componentProps } = block
+        const Component = sections[blocktype] || Fallback
+        return <Component key={id} {...(componentProps as any)} />
+      })}
     </Layout>
   )
 }
-
-export default BlogIndex
-
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => (
-  <Seo title="Notink - 我想慢慢写一些东西" useTemplate={false} />
-)
-
-export const pageQuery = graphql`
+export const Head = (props: HomepageProps) => {
+  const { homepage } = props.data
+  return <SEOHead {...homepage} />
+}
+export const query = graphql`
   {
-    site {
-      siteMetadata {
-        title
+    homepage {
+      id
+      title
+      description
+      image {
+        id
+        url
       }
-    }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
+      blocks: content {
+        id
+        blocktype
+        ...HomepageHeroContent
+        ...HomepageFeatureListContent
+        ...HomepageCtaContent
+        ...HomepageLogoListContent
+        ...HomepageTestimonialListContent
+        ...HomepageBenefitListContent
+        ...HomepageStatListContent
+        ...HomepageProductListContent
       }
     }
   }
